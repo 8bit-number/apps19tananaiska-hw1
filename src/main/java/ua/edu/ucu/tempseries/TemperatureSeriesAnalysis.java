@@ -4,13 +4,13 @@ package ua.edu.ucu.tempseries;
 import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
-    public double[] temperatureSeries;
-    public int len;
+    private double[] temperatureSeries;
+    private int len;
 
-    public TemperatureSeriesAnalysis() {
-        this.temperatureSeries = new double[1];
-        this.len = 1;
-    }
+//    public TemperatureSeriesAnalysis() {
+//        this.temperatureSeries = new double[1];
+//        this.len = 1;
+//    }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (int i = 0; i < temperatureSeries.length; i++) {
@@ -22,8 +22,16 @@ public class TemperatureSeriesAnalysis {
         this.len = this.temperatureSeries.length;
     }
 
-    public void isEmpty() {
-        if (temperatureSeries.length < 1) {
+//    private double[] getArray() {
+//        return temperatureSeries;
+//    }
+//
+//    private int getSize() {
+//        return len;
+//    }
+
+    private void isEmpty() {
+        if (len < 1) {
             throw new IllegalArgumentException();
         }
     }
@@ -137,13 +145,11 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double addTemps(double... temps) {
-//        if (len < len + temps.length) {
         int newLength = 2 * len;
-//        12
         double[] arr = new double[newLength];
-        for (int i = 0; i < len; i++) {
-            arr[i] = temperatureSeries[i];
-        }
+//        for (int i = 0; i < len; i++) {
+//            arr[i] = temperatureSeries[i];
+//        }
         int startingIndex = newLength - len;
         int k = 0;
         for (int i = startingIndex; i < newLength; i++) {
@@ -157,22 +163,6 @@ public class TemperatureSeriesAnalysis {
             sum = sum + arr[i];
         }
         return sum;
-//        } else {
-//            int startingIndex = len - temps.length;
-//            int k = 0;
-//            for (int i = startingIndex; i < len; i++) {
-//                if (k < temps.length) {
-//                    temperatureSeries[i] = temps[k];
-//                    k++;
-//                }
-
-//            }
-//            double sum = 0;
-//            for (int i = 0; i < len; i++) {
-//                sum++;
-//            }
-//            return sum;
-//        }
     }
 
 }
