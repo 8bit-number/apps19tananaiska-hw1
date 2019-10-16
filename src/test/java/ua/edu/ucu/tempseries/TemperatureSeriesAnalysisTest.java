@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TemperatureSeriesAnalysisTest4 {
+public class TemperatureSeriesAnalysisTest {
 
     private TemperatureSeriesAnalysis seriesAnalysis1;
     private TemperatureSeriesAnalysis seriesAnalysis2;
@@ -107,7 +107,7 @@ public class TemperatureSeriesAnalysisTest4 {
     @Test
     public void testSummaryStatistics() {
         double expResult = 122;
-        double actResult = seriesAnalysis2.summaryStatistics().maxTemp;
+        double actResult = seriesAnalysis2.summaryStatistics().getMaxTemp();
         assertEquals(expResult, actResult, 0);
     }
 

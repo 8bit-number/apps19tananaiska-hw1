@@ -1,16 +1,16 @@
 package ua.edu.ucu.tempseries;
-//import sun.tools.tree.ThisExpression;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSeries;
     private int len;
 
-//    public TemperatureSeriesAnalysis() {
-//        this.temperatureSeries = new double[1];
-//        this.len = 1;
-//    }
+    public TemperatureSeriesAnalysis() {
+        this.temperatureSeries = new double[1];
+        this.len = 1;
+    }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (int i = 0; i < temperatureSeries.length; i++) {
@@ -18,10 +18,10 @@ public class TemperatureSeriesAnalysis {
                 throw new InputMismatchException();
             }
         }
-        this.temperatureSeries = temperatureSeries;
+        this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
         this.len = this.temperatureSeries.length;
     }
-
+//
 //    private double[] getArray() {
 //        return temperatureSeries;
 //    }
@@ -146,10 +146,11 @@ public class TemperatureSeriesAnalysis {
 
     public double addTemps(double... temps) {
         int newLength = 2 * len;
+        System.out.println(temperatureSeries.length);
         double[] arr = new double[newLength];
-//        for (int i = 0; i < len; i++) {
-//            arr[i] = temperatureSeries[i];
-//        }
+        for (int i = 0; i < len; i++) {
+            arr[i] = temperatureSeries[i];
+        }
         int startingIndex = newLength - len;
         int k = 0;
         for (int i = startingIndex; i < newLength; i++) {
@@ -164,6 +165,14 @@ public class TemperatureSeriesAnalysis {
         }
         return sum;
     }
+
+//    public static void main(String[] args) {
+//        double[] arr = {1,2,3,4,5};
+//        TemperatureSeriesAnalysis tsa = new TemperatureSeriesAnalysis(arr);
+//        System.out.println(tsa.addTemps(18, 56, 7));
+//
+//
+//    }
 
 }
 
