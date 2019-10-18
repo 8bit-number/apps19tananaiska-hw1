@@ -314,7 +314,37 @@ public class TemperatureSeriesAnalysisTest {
      * Test summary statistics.
      */
     @Test
-    public void testSummaryStatistics() {
+    public void testSummaryStatisticsMinimum() {
+        double expResult = -0.1;
+        double actResult = series6El.summaryStatistics().getMinTemp();
+        assertEquals(expResult, actResult, 0);
+    }
+
+    /**
+     * Test summary statistics.
+     */
+    @Test
+    public void testSummaryStatisticsAverage() {
+        double expResult = 24.333333333333332;
+        double actResult = series6El.summaryStatistics().getAvgTemp();
+        assertEquals(expResult, actResult, 0);
+    }
+
+    /**
+     * Test summary statistics.
+     */
+    @Test
+    public void testSummaryStatisticsDeviation() {
+        double expResult = 43.85079500102846;
+        double actResult = series6El.summaryStatistics().getDevTemp();
+        assertEquals(expResult, actResult, 0);
+    }
+
+    /**
+     * Test summary statistics.
+     */
+    @Test
+    public void testSummaryStatisticsMaximum() {
         double expResult = 122;
         double actResult = series6El.summaryStatistics().getMaxTemp();
         assertEquals(expResult, actResult, 0);

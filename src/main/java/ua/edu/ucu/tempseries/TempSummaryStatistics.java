@@ -3,7 +3,7 @@ package ua.edu.ucu.tempseries;
 /**
  * The type Temp summary statistics.
  */
-public class TempSummaryStatistics {
+final class TempSummaryStatistics {
     private double avgTemp;
     private double devTemp;
     private double minTemp;

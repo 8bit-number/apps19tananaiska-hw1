@@ -224,5 +224,18 @@ public class TemperatureSeriesAnalysis {
         temperatureSeries = Arrays.copyOf(arr, arr.length);
         return len + tempsLen;
     }
+
+    public static void main(String[] args) {
+        double[] arr = {5, 122, 0.1, 9, -0.1, 10};
+        TemperatureSeriesAnalysis obj = new TemperatureSeriesAnalysis(arr);
+        double avg = obj.average();
+        double dev = obj.deviation();
+        double min = obj.min();
+        double max = obj.max();
+        System.out.println(obj.summaryStatistics().getAvgTemp());
+        System.out.println(obj.summaryStatistics().getDevTemp());
+
+
+    }
 }
 
