@@ -22,7 +22,9 @@ public class TemperatureSeriesAnalysis {
     /**
      * Instantiates a new Temperature series analysis.
      *
-     * @param temperatureSeries the temperature series - initial array, that contains values of temperatures.
+     * @param temperatureSeries the temperature series -
+     *                          initial array,
+     *                          that contains values of temperatures.
      */
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (int i = 0; i < temperatureSeries.length; i++) {
@@ -30,7 +32,8 @@ public class TemperatureSeriesAnalysis {
                 throw new InputMismatchException();
             }
         }
-        this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
+        this.temperatureSeries = Arrays.copyOf(temperatureSeries,
+                temperatureSeries.length);
         this.len = this.temperatureSeries.length;
     }
 
@@ -57,7 +60,7 @@ public class TemperatureSeriesAnalysis {
     /**
      * Deviation double.
      *
-     * @return the double - standard deviation counted among all values in array.
+     * @return the double - standard deviation for all values in array.
      */
     public double deviation() {
         isEmpty();
@@ -114,7 +117,8 @@ public class TemperatureSeriesAnalysis {
      * Find temp closest to value double.
      *
      * @param tempValue the temp value
-     * @return the double - temperature, which value is the closest to one particular value.
+     * @return the double - temperature,
+     * which value is the closest to one particular value.
      */
     public double findTempClosestToValue(double tempValue) {
         isEmpty();
@@ -133,7 +137,9 @@ public class TemperatureSeriesAnalysis {
      * Find temps less then double [ ].
      *
      * @param tempValue the temp value
-     * @return the double [ ] - new array, that contains values of temperatures, that are less then the particular one.
+     * @return the double [ ] - new array,
+     * that contains values of temperatures,
+     * that are less then the particular one.
      */
     public double[] findTempsLessThen(double tempValue) {
         isEmpty();
@@ -158,7 +164,9 @@ public class TemperatureSeriesAnalysis {
      * Find temps greater then double [ ].
      *
      * @param tempValue the temp value
-     * @return the double [ ] - new array, that contains values of temperatures, that are greater then the particular one.
+     * @return the double [ ] - new array,
+     * that contains values of temperatures,
+     * that are greater then the particular one.
      */
     public double[] findTempsGreaterThen(double tempValue) {
         isEmpty();
@@ -182,7 +190,8 @@ public class TemperatureSeriesAnalysis {
     /**
      * Summary statistics temp summary statistics.
      *
-     * @return the temp summary statistics - the overall statistics for the input data.
+     * @return the temp summary statistics -
+     * the overall statistics for the input data.
      */
     public TempSummaryStatistics summaryStatistics() {
         double avgTemp = this.average();
@@ -198,7 +207,8 @@ public class TemperatureSeriesAnalysis {
      * Add temps int.
      *
      * @param temps the temps
-     * @return the int - the number of elements after new values of temperatures were added to the initial array of temperatures.
+     * @return the int - the number of elements after new values of \
+     * temperatures were added to the initial array of temperatures.
      */
     public int addTemps(double... temps) {
         int tempsLen = temps.length;
