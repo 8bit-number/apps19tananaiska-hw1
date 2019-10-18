@@ -37,6 +37,10 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
+    private boolean compare(double a, double b) {
+        return a < b;
+    }
+
     /**
      * Average double.
      *
@@ -61,7 +65,7 @@ public class TemperatureSeriesAnalysis {
         double averageVal = average();
         double nom = 0;
         for (int i = 0; i < len; i++) {
-            nom = nom + (temperatureSeries[i] - averageVal)*
+            nom = nom + (temperatureSeries[i] - averageVal) *
                     (temperatureSeries[i] - averageVal);
         }
         return Math.sqrt(nom / len);
@@ -147,7 +151,7 @@ public class TemperatureSeriesAnalysis {
         double[] array = new double[counter];
         int k = 0;
         for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] < tempValue && k < len) {
+            if (temperatureSeries[i] < tempValue && compare(k, len)) {
                 array[k] = temperatureSeries[i];
                 k++;
             }
@@ -174,7 +178,7 @@ public class TemperatureSeriesAnalysis {
         double[] array = new double[counter];
         int k = 0;
         for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] >= tempValue && k < len) {
+            if (temperatureSeries[i] >= tempValue && compare(k, len)) {
                 array[k] = temperatureSeries[i];
                 k++;
             }
@@ -212,7 +216,7 @@ public class TemperatureSeriesAnalysis {
             newLength = newLength * 2;
         }
         double[] arr = Arrays.copyOf(temperatureSeries, newLength);
-        for (int i = len, k = 0; i < newLength && k < tempsLen; i++, k++) {
+        for (int i = len, k = 0; i < newLength && compare(k, tempsLen); i++, k++) {
             arr[i] = temps[k];
         }
 
