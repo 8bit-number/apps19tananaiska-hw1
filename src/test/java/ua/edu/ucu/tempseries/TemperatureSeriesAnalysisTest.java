@@ -360,4 +360,14 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actResult, 0);
 
     }
+    /**
+     * Test add temps.
+     */
+    @Test
+    public void testAddTempsToEmptyArray() {
+        double expResult = 4;
+        double actResult = series0El.addTemps(2, -9.7, 12, 19);
+        assertEquals(expResult, actResult, 0);
+
+    }
 }

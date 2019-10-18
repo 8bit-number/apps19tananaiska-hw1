@@ -65,8 +65,8 @@ public class TemperatureSeriesAnalysis {
         double averageVal = average();
         double nom = 0;
         for (int i = 0; i < len; i++) {
-            nom = nom + (temperatureSeries[i] - averageVal) *
-                    (temperatureSeries[i] - averageVal);
+            nom = nom + (temperatureSeries[i] - averageVal)
+                    * (temperatureSeries[i] - averageVal);
         }
         return Math.sqrt(nom / len);
     }
@@ -212,11 +212,16 @@ public class TemperatureSeriesAnalysis {
     public int addTemps(double... temps) {
         int tempsLen = temps.length;
         int newLength = len;
-        while (newLength < len + tempsLen) {
-            newLength = newLength * 2;
+        if (len == 0) {
+            newLength = tempsLen;
+        } else {
+            while (newLength < len + tempsLen) {
+                newLength = newLength * 2;
+            }
         }
         double[] arr = Arrays.copyOf(temperatureSeries, newLength);
-        for (int i = len, k = 0; i < newLength && compare(k, tempsLen); i++, k++) {
+        for (int i = len, k = 0; i < newLength && compare(k, tempsLen);
+             i++, k++) {
             arr[i] = temps[k];
         }
 
