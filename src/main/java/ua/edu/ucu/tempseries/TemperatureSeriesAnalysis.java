@@ -8,19 +8,13 @@ import java.util.InputMismatchException;
  * The type TemperatureSeriesAnalysis.
  */
 public class TemperatureSeriesAnalysis {
+    private static final double MIN_TEMPERATURE = -273.0;
     private double[] temperatureSeries;
     private int len;
 
-    /**
-     * Instantiates a new TemperatureSeriesAnalysis object.
-     */
-    public TemperatureSeriesAnalysis() {
-        this.temperatureSeries = new double[1];
-        this.len = 1;
-    }
 
     /**
-     * Instantiates a new Temperature series analysis.
+     * Instantiates a new Temperature series analysis object.
      *
      * @param temperatureSeries the temperature series -
      *                          initial array,
@@ -28,7 +22,7 @@ public class TemperatureSeriesAnalysis {
      */
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (int i = 0; i < temperatureSeries.length; i++) {
-            if (temperatureSeries[i] < -273.0) {
+            if (temperatureSeries[i] < MIN_TEMPERATURE) {
                 throw new InputMismatchException();
             }
         }
@@ -67,7 +61,8 @@ public class TemperatureSeriesAnalysis {
         double averageVal = average();
         double nom = 0;
         for (int i = 0; i < len; i++) {
-            nom = nom + Math.pow(temperatureSeries[i] - averageVal, 2);
+            nom = nom + (temperatureSeries[i] - averageVal)*
+                    (temperatureSeries[i] - averageVal);
         }
         return Math.sqrt(nom / len);
     }
@@ -223,19 +218,6 @@ public class TemperatureSeriesAnalysis {
 
         temperatureSeries = Arrays.copyOf(arr, arr.length);
         return len + tempsLen;
-    }
-
-    public static void main(String[] args) {
-        double[] arr = {5, 122, 0.1, 9, -0.1, 10};
-        TemperatureSeriesAnalysis obj = new TemperatureSeriesAnalysis(arr);
-        double avg = obj.average();
-        double dev = obj.deviation();
-        double min = obj.min();
-        double max = obj.max();
-        System.out.println(obj.summaryStatistics().getAvgTemp());
-        System.out.println(obj.summaryStatistics().getDevTemp());
-
-
     }
 }
 

@@ -191,7 +191,7 @@ public class TemperatureSeriesAnalysisTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFindTempClosestToZeroWithEmptyArray() {
-        series0El.findTempClosestToValue(0);
+        series0El.findTempClosestToZero();
     }
 
     /**
@@ -200,7 +200,7 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testFindTempClosestToZeroWithOneElementArray() {
         double expResult = -1.0;
-        double actResult = series1El.findTempClosestToValue(0);
+        double actResult = series1El.findTempClosestToZero();
         assertEquals(expResult, actResult, 0);
     }
 
@@ -210,7 +210,7 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testFindTempClosestToZeroWithFourElementArray() {
         double expResult = 1.0;
-        double actResult = series4El.findTempClosestToValue(0);
+        double actResult = series4El.findTempClosestToZero();
         assertEquals(expResult, actResult, 0);
     }
 
@@ -220,7 +220,7 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testFindTempClosestToZeroWithSixElementArray() {
         double expResult = 0.1;
-        double actResult = series6El.findTempClosestToValue(0);
+        double actResult = series6El.findTempClosestToZero();
         assertEquals(expResult, actResult, 0);
     }
 
